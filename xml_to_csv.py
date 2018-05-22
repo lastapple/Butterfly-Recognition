@@ -27,14 +27,17 @@ def xml_to_csv(path):
     column_name = ['filename', 'width', 'height', 'class', 'xmin', 'ymin', 'xmax', 'ymax']
 
     # 将所有数据分为样本集和验证集，一般按照3:1的比例
-    train_list = xml_list[0: int(len(xml_list) * 0.67)]
-    eval_list = xml_list[int(len(xml_list) * 0.67) + 1: ]
+    csv_list = xml_list[0: int(len(xml_list))]
+    # train_list = xml_list[0: int(len(xml_list) * 0.67)]
+    # eval_list = xml_list[int(len(xml_list) * 0.67) + 1: ]
 
     # 保存为CSV格式
-    train_df = pd.DataFrame(train_list, columns=column_name)
-    eval_df = pd.DataFrame(eval_list, columns=column_name)
-    train_df.to_csv('D:\\Images\\data_train.csv',encoding='utf_8_sig',index=None)
-    eval_df.to_csv('D:\\Images\\data_eval.csv',encoding='utf_8_sig', index=None)
+    total_df = pd.DataFrame(csv_list, columns=column_name)
+    total_df.to_csv('D:\\Images\\data_total.csv',encoding='utf_8_sig',index=None)
+    # train_df = pd.DataFrame(train_list, columns=column_name)
+    # eval_df = pd.DataFrame(eval_list, columns=column_name)
+    # train_df.to_csv('D:\\Images\\data_train.csv',encoding='utf_8_sig',index=None)
+    # eval_df.to_csv('D:\\Images\\data_eval.csv',encoding='utf_8_sig', index=None)
 
 
 def main():
